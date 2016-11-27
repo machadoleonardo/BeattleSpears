@@ -1,5 +1,4 @@
-package model;
-public class Jogador  {
+public class Jogador implements Jogada {
 
 	protected String nome;
 	protected boolean jogadarDaVez;

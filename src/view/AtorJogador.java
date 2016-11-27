@@ -1,6 +1,13 @@
 package view;
 import model.ImagemDoTabuleiro;
 
+import control.Tabuleiro;
+import model.Lance;
+import br.ufsc.inf.leobr.cliente.exception.NaoConectadoException;
+import br.ufsc.inf.leobr.cliente.exception.NaoJogandoException;
+import rede.AtorNetGames;
+
+
 public class AtorJogador {
 
 	protected AtorJogador interfaceGrafica;
@@ -24,14 +31,18 @@ public class AtorJogador {
 		// TODO - implement AtorNetGames.iniciarPartida
 		throw new UnsupportedOperationException();
 	}
+	
+	public void notificar(String mensagem) {
+		tela.notificar(mensagem);
+	}
+	
+	public void notificarErro(String erro) {
+		this.tabuleiro.setPartidaEmAndamento(false);
+		tela.notificar(erro);
+	}
 
-	/**
-	 * 
-	 * @param jogada
-	 */
-	public void enviarJogada(ImagemDoTabuleiro jogada) {
-		// TODO - implement AtorNetGames.enviarJogada
-		throw new UnsupportedOperationException();
+	public void IniciarPartida() throws NaoConectadoException {
+		rede.iniciarPartida();
 	}
 
 	/**
@@ -55,6 +66,25 @@ public class AtorJogador {
 	public void informaIdAdversario(String idUsuario) {
 		// TODO - implement AtorNetGames.informaIdAdversario
 		throw new UnsupportedOperationException();
+	}
+
+	
+	public void receberLance(Lance jogada) {
+		
+	}
+
+	public boolean avaliarInterrupcao() {
+		return false;
+		
+	}
+
+	public void tratarIniciarPartida() {
+		
+	}
+
+
+	public Tabuleiro getTabuleiro() {
+		return this.tabuleiro;
 	}
 
 }
