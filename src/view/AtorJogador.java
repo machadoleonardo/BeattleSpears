@@ -1,6 +1,7 @@
 package view;
 
 import control.Tabuleiro;
+import model.Lance;
 import br.ufsc.inf.leobr.cliente.exception.NaoConectadoException;
 import br.ufsc.inf.leobr.cliente.exception.NaoJogandoException;
 import rede.AtorNetGames;
@@ -38,9 +39,18 @@ public class AtorJogador {
 	public void desconectar() throws NaoConectadoException {
 		rede.desconectar();
 	}
+	
+	public void notificar(String mensagem) {
+		tela.notificar(mensagem);
+	}
+	
+	public void notificarErro(String erro) {
+		this.tabuleiro.setPartidaEmAndamento(false);
+		tela.notificar(erro);
+	}
 
-	public void IniciarPartida() {
-		
+	public void IniciarPartida() throws NaoConectadoException {
+		rede.iniciarPartida();
 	}
 
 	
@@ -62,6 +72,7 @@ public class AtorJogador {
 	}
 
 	public boolean avaliarInterrupcao() {
+		return false;
 		
 	}
 
