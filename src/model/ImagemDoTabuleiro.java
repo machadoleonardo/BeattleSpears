@@ -14,7 +14,7 @@ public class ImagemDoTabuleiro  implements Jogada{
 	protected String mensagem;
 	protected boolean vencedorCampanha = false;
 	protected boolean movimentoAtaque = false;
-	protected Jogador jogador;
+	
 
 
 
@@ -58,12 +58,4 @@ public class ImagemDoTabuleiro  implements Jogada{
 		return this.posicoes;
 	}
 	
-	public Jogador getJogador() {
-		return jogador;
-	}
-
-	public void setJogador(Jogador jogador) {
-		this.jogador = jogador;
-	}
-
 }

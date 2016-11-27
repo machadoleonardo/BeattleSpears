@@ -11,11 +11,10 @@ import model.Posicao;
 public class Tabuleiro {
 
 	protected  Array[][] posicoes;
-	protected Jogador jogador1;
-	protected Jogador jogador2;
+	protected Jogador jogadorLocal;
+	protected Jogador jogadorRemoto;
 	protected boolean partidaEmAndamento;
-	protected Lance ultimoLanceJogador1;
-	protected Lance ultimoLanceJogador2;
+	protected Lance ultimoLanceJogadorLocal;
 	protected boolean ehVencedor;
 
 	public Tabuleiro() {
@@ -85,14 +84,10 @@ public class Tabuleiro {
 			int numeroDeVitorias;
 			
 			if(vencedor){
-				String nome = umTab.getJogador().getNome();
-				if(jogador1.getNome().equals(nome)){
-					jogador1.incrementaVitoria();
-					numeroDeVitorias = jogador1.getNumeroVitorias();
-				}else{
-					jogador2.incrementaVitoria();
-					numeroDeVitorias = jogador2.getNumeroVitorias();
-				}
+				
+				this.jogadorRemoto.incrementaVitoria();
+				numeroDeVitorias = this.jogadorRemoto.getNumeroVitorias();
+				
 				
 				if(numeroDeVitorias == 3){
 					this.finalizaPartida();
@@ -101,10 +96,8 @@ public class Tabuleiro {
 				}
 			}
 		}
-		
-		
-		
-	
+		this.jogadorLocal.setJogadorDaVez(true);
+			
 	}
 
 	/**
