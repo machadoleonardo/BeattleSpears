@@ -1,4 +1,6 @@
-public class Lance implements Jogada {
+package model;
+
+public class Lance {
 
 	protected Jogador jogador;
 	protected int tipoMovimento;
