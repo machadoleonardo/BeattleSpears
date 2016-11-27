@@ -1,6 +1,7 @@
-public class Jogador implements Jogada {
+package model;
+public class Jogador  {
 
-	protected string nome;
+	protected String nome;
 	protected boolean jogadarDaVez;
 	protected boolean vencedor;
 	protected int numeroDeVitorias;
@@ -10,7 +11,7 @@ public class Jogador implements Jogada {
 	 * @param idJogador
 	 * @param nome
 	 */
-	public Jogador(string idJogador, string nome) {
+	public Jogador(String idJogador, String nome) {
 		// TODO - implement Jogador.Jogador
 		throw new UnsupportedOperationException();
 	}
@@ -27,6 +28,25 @@ public class Jogador implements Jogada {
 
 	public void desabilitar() {
 		// TODO - implement Jogador.desabilitar
+		throw new UnsupportedOperationException();
+	}
+
+	public void incrementaVitoria() {
+		// TODO - implement Jogador.incrementaVitoria
+		throw new UnsupportedOperationException();
+	}
+
+	public int getNumeroVitorias() {
+		// TODO - implement Jogador.getNumeroVitorias
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param daVez
+	 */
+	public void setJogadorDaVez(boolean daVez) {
+		// TODO - implement Jogador.setJogadorDaVez
 		throw new UnsupportedOperationException();
 	}
 

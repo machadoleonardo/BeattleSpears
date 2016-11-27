@@ -1,4 +1,8 @@
-public class Posicao implements Jogada {
+package model;
+
+
+
+public class Posicao {
 
 	protected Jogador ocupante;
 	protected boolean ocupada;

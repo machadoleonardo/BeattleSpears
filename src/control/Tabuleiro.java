@@ -2,12 +2,12 @@ package control;
 
 import java.util.*;
 
-import br.ufsc.inf.leobr.cliente.Jogada;
+import model.ImagemDoTabuleiro;
 import model.Jogador;
-import model.Posicao;
 import model.Lance;
+import model.Posicao;
 
-public class Tabuleiro implements Jogada {
+public class Tabuleiro {
 
 	protected Collection<Posicao> posicoes;
 	protected Jogador jogador1;
@@ -18,7 +18,8 @@ public class Tabuleiro implements Jogada {
 	protected boolean ehVencedor;
 
 	public Tabuleiro() {
-			this.posicoes = new ArrayList<Posicao>();
+		// TODO - implement Tabuleiro.Tabuleiro
+		throw new UnsupportedOperationException();
 	}
 
 	public boolean informarConectado() {
@@ -74,7 +75,7 @@ public class Tabuleiro implements Jogada {
 	 * 
 	 * @param umTab
 	 */
-	public void receberLance(Tabuleiro umTab) {
+	public void receberLance(ImagemDoTabuleiro umTab) {
 		// TODO - implement Tabuleiro.receberLance
 		throw new UnsupportedOperationException();
 	}
@@ -186,8 +187,9 @@ public class Tabuleiro implements Jogada {
 		throw new UnsupportedOperationException();
 	}
 
-	public Object getJogador1() {
-		return this.jogador1;
+	public void finalizaPartida() {
+		// TODO - implement Tabuleiro.finalizaPartida
+		throw new UnsupportedOperationException();
 	}
 
 }
