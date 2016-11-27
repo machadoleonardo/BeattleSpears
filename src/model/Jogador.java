@@ -1,16 +1,16 @@
+package model;
+
+import br.ufsc.inf.leobr.cliente.Jogada;
+
 public class Jogador implements Jogada {
 
-	protected string nome;
+	protected String nome;
 	protected boolean jogadarDaVez;
 	protected boolean vencedor;
 	protected int numeroDeVitorias;
 
-	/**
-	 * 
-	 * @param idJogador
-	 * @param nome
-	 */
-	public Jogador(string idJogador, string nome) {
+	
+	public Jogador(String idJogador, String nome) {
 		// TODO - implement Jogador.Jogador
 		throw new UnsupportedOperationException();
 	}
