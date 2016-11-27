@@ -11,7 +11,7 @@ public class Jogador  {
 	 * @param idJogador
 	 * @param nome
 	 */
-	public Jogador(String idJogador, String nome) {
+	public Jogador(String nome) {
 		// TODO - implement Jogador.Jogador
 		throw new UnsupportedOperationException();
 	}
@@ -48,6 +48,14 @@ public class Jogador  {
 	public void setJogadorDaVez(boolean daVez) {
 		// TODO - implement Jogador.setJogadorDaVez
 		throw new UnsupportedOperationException();
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 }

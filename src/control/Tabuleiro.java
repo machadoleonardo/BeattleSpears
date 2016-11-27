@@ -1,5 +1,6 @@
 package control;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 import model.ImagemDoTabuleiro;
@@ -9,7 +10,7 @@ import model.Posicao;
 
 public class Tabuleiro {
 
-	protected Collection<Posicao> posicoes;
+	protected  Array[][] posicoes;
 	protected Jogador jogador1;
 	protected Jogador jogador2;
 	protected boolean partidaEmAndamento;
@@ -76,8 +77,34 @@ public class Tabuleiro {
 	 * @param umTab
 	 */
 	public void receberLance(ImagemDoTabuleiro umTab) {
-		// TODO - implement Tabuleiro.receberLance
-		throw new UnsupportedOperationException();
+		posicoes = umTab.getPosicoes();
+		boolean ataque = umTab.getSeAtaque();
+		
+		if (ataque){
+			boolean vencedor = umTab.getSeVencedorCampanha();
+			int numeroDeVitorias;
+			
+			if(vencedor){
+				String nome = umTab.getJogador().getNome();
+				if(jogador1.getNome().equals(nome)){
+					jogador1.incrementaVitoria();
+					numeroDeVitorias = jogador1.getNumeroVitorias();
+				}else{
+					jogador2.incrementaVitoria();
+					numeroDeVitorias = jogador2.getNumeroVitorias();
+				}
+				
+				if(numeroDeVitorias == 3){
+					this.finalizaPartida();
+				}else{
+					this.finalizaCampanha();
+				}
+			}
+		}
+		
+		
+		
+	
 	}
 
 	/**
