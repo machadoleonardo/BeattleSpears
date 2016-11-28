@@ -19,6 +19,14 @@ public class Tabuleiro implements Jogada {
 
 	public Tabuleiro() {
 			this.posicoes = new ArrayList<Posicao>();
+			jogador1 = new Jogador("Ronan");
+			jogador2 = new Jogador("Jorge");
+			
+	}
+	
+	public void criarJogadores(String idJogador, String adversario, int posicao) {
+		
+
 	}
 
 	public boolean informarConectado() {
@@ -48,7 +56,7 @@ public class Tabuleiro implements Jogada {
 	}
 
 	public void posicionarJogadores() {
-		throw new UnsupportedOperationException();
+		
 	}
 
 	public void definirOrdemInicio() {

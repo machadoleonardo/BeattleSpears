@@ -9,25 +9,24 @@ public class Jogador implements Jogada {
 	protected boolean vencedor;
 	protected int numeroDeVitorias;
 
-	
-	public Jogador(String idJogador, String nome) {
-		// TODO - implement Jogador.Jogador
-		throw new UnsupportedOperationException();
+	public Jogador(String nome){
+		this.nome = nome;
+		this.numeroDeVitorias = 0;
+		
 	}
-
+	
+	
 	public void habilitar() {
 		// TODO - implement Jogador.habilitar
 		throw new UnsupportedOperationException();
 	}
 
 	public boolean jogadorDaVez() {
-		// TODO - implement Jogador.jogadorDaVez
-		throw new UnsupportedOperationException();
+		return this.jogadarDaVez;
 	}
 
 	public void desabilitar() {
-		// TODO - implement Jogador.desabilitar
-		throw new UnsupportedOperationException();
+		
 	}
 
 }
