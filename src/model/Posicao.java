@@ -1,8 +1,8 @@
 package model;
 
-import br.ufsc.inf.leobr.cliente.Jogada;
 
-public class Posicao implements Jogada {
+
+public class Posicao {
 
 	protected Jogador ocupante;
 	protected boolean ocupada;

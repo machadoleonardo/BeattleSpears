@@ -1,4 +1,5 @@
 package view;
+import model.ImagemDoTabuleiro;
 
 import control.Tabuleiro;
 import model.Lance;
@@ -9,35 +10,26 @@ import rede.AtorNetGames;
 
 public class AtorJogador {
 
-	protected Tabuleiro tabuleiro;
-	protected AtorNetGames rede;
-	protected String idUsuario;
-	protected TelaPrincipal tela;
+	protected AtorJogador interfaceGrafica;
 
-	
-	public AtorJogador() {
-		this.tabuleiro = new Tabuleiro();
-		this.tela = new TelaPrincipal(this);
-		this.rede = new AtorNetGames(this);
-	}
-	
-	
-	public void conectar(String idUsuario, String servidor) throws Exception {
-		this.idUsuario = idUsuario;
-		rede.conectar(idUsuario, servidor);
+	/**
+	 * 
+	 * @param servidor
+	 * @param nome
+	 */
+	public void conectar(String servidor, String nome) {
+		// TODO - implement AtorNetGames.conectar
+		throw new UnsupportedOperationException();
 	}
 
-	public void solicitarReinicio() throws NaoJogandoException {
-		this.tabuleiro.getJogador1().setTurno(false);
-		this.rede.enviarJogada(null);
-	}
-	
-	public void notificarIrregularidades(int cod) {
-		
+	public boolean desconectar() {
+		// TODO - implement AtorNetGames.desconectar
+		throw new UnsupportedOperationException();
 	}
 
-	public void desconectar() throws NaoConectadoException {
-		rede.desconectar();
+	public void iniciarPartida() {
+		// TODO - implement AtorNetGames.iniciarPartida
+		throw new UnsupportedOperationException();
 	}
 	
 	public void notificar(String mensagem) {
@@ -53,17 +45,27 @@ public class AtorJogador {
 		rede.iniciarPartida();
 	}
 
-	
-	public void clickJogada(int linha, int coluna, int tipoMovimento) {
-		
+	/**
+	 * 
+	 * @param jogada
+	 */
+	public void receberLance(ImagemDoTabuleiro jogada) {
+		// TODO - implement AtorNetGames.receberLance
+		throw new UnsupportedOperationException();
 	}
 
-	public void enviarJogada() {
-		
+	public void iniciarNovaPartida() {
+		// TODO - implement AtorNetGames.iniciarNovaPartida
+		throw new UnsupportedOperationException();
 	}
 
-	public void exibirEstado() {
-		
+	/**
+	 * 
+	 * @param idUsuario
+	 */
+	public void informaIdAdversario(String idUsuario) {
+		// TODO - implement AtorNetGames.informaIdAdversario
+		throw new UnsupportedOperationException();
 	}
 
 	
