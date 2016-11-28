@@ -1,6 +1,8 @@
 package model;
 
-public class Lance {
+import br.ufsc.inf.leobr.cliente.Jogada;
+
+public class Lance implements Jogada {
 
 	protected Jogador jogador;
 	protected int tipoMovimento;

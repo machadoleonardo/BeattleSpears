@@ -1,3 +1,7 @@
+package model;
+
+import br.ufsc.inf.leobr.cliente.Jogada;
+
 public class Jogador implements Jogada {
 
 	protected String nome;
@@ -5,12 +9,8 @@ public class Jogador implements Jogada {
 	protected boolean vencedor;
 	protected int numeroDeVitorias;
 
-	/**
-	 * 
-	 * @param idJogador
-	 * @param nome
-	 */
-	public Jogador(String nome) {
+	
+	public Jogador(String idJogador, String nome) {
 		// TODO - implement Jogador.Jogador
 		throw new UnsupportedOperationException();
 	}
@@ -28,33 +28,6 @@ public class Jogador implements Jogada {
 	public void desabilitar() {
 		// TODO - implement Jogador.desabilitar
 		throw new UnsupportedOperationException();
-	}
-
-	public void incrementaVitoria() {
-		// TODO - implement Jogador.incrementaVitoria
-		throw new UnsupportedOperationException();
-	}
-
-	public int getNumeroVitorias() {
-		// TODO - implement Jogador.getNumeroVitorias
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param daVez
-	 */
-	public void setJogadorDaVez(boolean daVez) {
-		// TODO - implement Jogador.setJogadorDaVez
-		throw new UnsupportedOperationException();
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
 
 }

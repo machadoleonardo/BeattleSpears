@@ -1,62 +1,81 @@
 package rede;
 
-import model.ImagemDoTabuleiro;
+import br.ufsc.inf.leobr.cliente.Jogada;
+import br.ufsc.inf.leobr.cliente.OuvidorProxy;
+import br.ufsc.inf.leobr.cliente.Proxy;
+import br.ufsc.inf.leobr.cliente.exception.NaoConectadoException;
+import br.ufsc.inf.leobr.cliente.exception.NaoJogandoException;
+import control.Tabuleiro;
 import view.AtorJogador;
 
-public class AtorNetGames {
+public class AtorNetGames implements OuvidorProxy {
 
-	protected AtorJogador interfaceGrafica;
+	private static final long serialVersionUID = 0L;
+	protected AtorJogador atorJogador;
+	protected Proxy proxy;
 
-	/**
-	 * 
-	 * @param servidor
-	 * @param nome
-	 */
-	public void conectar(String servidor, String nome) {
-		// TODO - implement AtorNetGames.conectar
-		throw new UnsupportedOperationException();
+	public AtorNetGames(AtorJogador ator) {
+		atorJogador = ator;
+		proxy = Proxy.getInstance();
+		proxy.addOuvinte(this);
 	}
 
-	public boolean desconectar() {
-		// TODO - implement AtorNetGames.desconectar
-		throw new UnsupportedOperationException();
+	public void conectar(String idJogador, String servidor) throws Exception {
+		proxy.conectar(servidor, idJogador);
 	}
 
-	public void iniciarPartida() {
-		// TODO - implement AtorNetGames.iniciarPartida
-		throw new UnsupportedOperationException();
+	public void desconectar() throws NaoConectadoException {
+		proxy.desconectar();
 	}
 
-	/**
-	 * 
-	 * @param jogada
-	 */
-	public void enviarJogada(ImagemDoTabuleiro jogada) {
-		// TODO - implement AtorNetGames.enviarJogada
-		throw new UnsupportedOperationException();
+	public void iniciarPartida() throws NaoConectadoException {
+		proxy.iniciarPartida(2);
 	}
 
-	/**
-	 * 
-	 * @param jogada
-	 */
-	public void receberLance(ImagemDoTabuleiro jogada) {
-		// TODO - implement AtorNetGames.receberLance
-		throw new UnsupportedOperationException();
+	public void reiniciarPartida() throws NaoConectadoException, NaoJogandoException {
+		proxy.reiniciarPartida();
 	}
 
-	public void iniciarNovaPartida() {
-		// TODO - implement AtorNetGames.iniciarNovaPartida
-		throw new UnsupportedOperationException();
+	public void iniciarNovaPartida(Integer posicao) {
+		atorJogador.iniciarNovaPartida(posicao);
 	}
 
-	/**
-	 * 
-	 * @param idUsuario
-	 */
-	public void informaIdAdversario(String idUsuario) {
-		// TODO - implement AtorNetGames.informaIdAdversario
-		throw new UnsupportedOperationException();
+	public void finalizarPartidaComErro(String message) {
+		this.atorJogador.notificarErro("O outro jogador desconectou da partida.");
+	}
+
+	public void receberMensagem(String msg) {
+		atorJogador.notificar(msg);
+	}
+
+	public void receberJogada(Jogada jogada) {
+		Tabuleiro tab = (Tabuleiro) jogada;
+		try {
+			this.atorJogador.receberJogada(tab);
+		} catch (NaoConectadoException e) {
+			e.printStackTrace();
+		} catch (NaoJogandoException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public void tratarConexaoPerdida() {
+		atorJogador.notificar("Conexão perdida. Por favor, conecte-se novamente.");
+	}
+
+	public void tratarPartidaNaoIniciada(String message) {
+		this.atorJogador.notificarErro(
+				"Não foi possível iniciar a partida.\nProvavelmente não existem outros jogadores conectados.");
+	}
+
+	public String getNomeAdversario(int posicao) {
+		return proxy.obterNomeAdversarios().get(0);
+	}
+
+	public void enviarJogada(Tabuleiro tab) throws NaoJogandoException {
+		Jogada jogada = (Jogada) tab;
+		proxy.enviaJogada(jogada);
 	}
 
 }
