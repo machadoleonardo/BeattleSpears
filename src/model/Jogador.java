@@ -17,8 +17,7 @@ public class Jogador implements Jogada {
 	
 	
 	public void habilitar() {
-		// TODO - implement Jogador.habilitar
-		throw new UnsupportedOperationException();
+		this.jogadarDaVez = true;
 	}
 
 	public boolean jogadorDaVez() {
@@ -26,7 +25,18 @@ public class Jogador implements Jogada {
 	}
 
 	public void desabilitar() {
+		this.jogadarDaVez = false;
+	}
+
+
+	public void incrementaVitoria() {
+		this.numeroDeVitorias++;
 		
+	}
+
+
+	public int getNumeroVitorias() {
+		return this.numeroDeVitorias;
 	}
 
 }

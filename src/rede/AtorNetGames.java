@@ -6,6 +6,7 @@ import br.ufsc.inf.leobr.cliente.Proxy;
 import br.ufsc.inf.leobr.cliente.exception.NaoConectadoException;
 import br.ufsc.inf.leobr.cliente.exception.NaoJogandoException;
 import control.Tabuleiro;
+import model.ImagemDoTabuleiro;
 import view.AtorJogador;
 
 public class AtorNetGames implements OuvidorProxy {
@@ -47,16 +48,10 @@ public class AtorNetGames implements OuvidorProxy {
 	public void receberMensagem(String msg) {
 		atorJogador.notificar(msg);
 	}
-
+	
 	public void receberJogada(Jogada jogada) {
-		Tabuleiro tab = (Tabuleiro) jogada;
-		try {
-			this.atorJogador.receberJogada(tab);
-		} catch (NaoConectadoException e) {
-			e.printStackTrace();
-		} catch (NaoJogandoException e) {
-			e.printStackTrace();
-		}
+		ImagemDoTabuleiro tab = (ImagemDoTabuleiro) jogada;
+		this.atorJogador.receberLance(tab);
 
 	}
 

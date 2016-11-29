@@ -1,20 +1,18 @@
 package model;
 
-import java.lang.reflect.Array;
-
 import br.ufsc.inf.leobr.cliente.Jogada;
 
 public class ImagemDoTabuleiro  implements Jogada{
 
 
 	private static final long serialVersionUID = 1L;
-	protected Array[][] posicoes;
+	protected Posicao[] posicoes;
 	protected String mensagem;
 	protected boolean vencedorCampanha = false;
 	protected boolean movimentoAtaque = false;
 	
 
-	public void definePosicoes( Array[][] posicoes) {
+	public void definePosicoes( Posicao[] posicoes) {
 		this.posicoes = posicoes;
 	}
 
@@ -42,7 +40,7 @@ public class ImagemDoTabuleiro  implements Jogada{
 		return this.movimentoAtaque;
 	}
 
-	public Array[][] getPosicoes() {
+	public Posicao[] getPosicoes() {
 		return this.posicoes;
 	}
 	
