@@ -1,0 +1,6 @@
+bin/model/*.class
+bin/control/*.class
+bin/rede/*.class
+bin/view/*.class 
+bin/*.class
+

@@ -1,3 +1,7 @@
+package model;
+
+import br.ufsc.inf.leobr.cliente.Jogada;
+
 public class Lance implements Jogada {
 
 	protected Jogador jogador;

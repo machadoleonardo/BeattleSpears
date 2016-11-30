@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class TelaPrincipal extends JFrame {
@@ -217,6 +218,7 @@ public class TelaPrincipal extends JFrame {
 		atacar = new JButton("Atacar!");
 		atacar.setBounds(60, 200, 100, 30);
 		atacar.setVisible(true);
+		atacar.setEnabled(false);
 		atacar.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent e)
 			  {
@@ -230,6 +232,7 @@ public class TelaPrincipal extends JFrame {
 		mover = new JButton("Mover");
 		mover.setBounds(160, 200, 100, 30);
 		mover.setVisible(true);
+		mover.setEnabled(false);
 		mover.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent e)
 			  {
@@ -242,12 +245,12 @@ public class TelaPrincipal extends JFrame {
 	
 	
 	public void notificar(String msg) {
-		
+		JOptionPane.showMessageDialog(null, msg);
 	}
 
 	
-	public String solicitar(String msg, Object object) {
-		return "e";
+	public String solicitar(String msg, String def) {
+		return JOptionPane.showInputDialog(msg, def);
 	}
 
 	
@@ -257,16 +260,15 @@ public class TelaPrincipal extends JFrame {
 
 
 
-	
-
 	public void posicionarPecasJogadores() {
 		
 	}
 	
 	
 	
-	public int perguntar(String msg) {
-		return 1;
+	public int perguntar(String pergunta) {
+		int opt = JOptionPane.showConfirmDialog(null, pergunta, "Question", 0, 3);
+		return opt;
 	}
 
 	public void reiniciar() {

@@ -1,6 +1,8 @@
 package view;
 
 import control.Tabuleiro;
+import model.ImagemDoTabuleiro;
+import model.Lance;
 import br.ufsc.inf.leobr.cliente.exception.NaoConectadoException;
 import br.ufsc.inf.leobr.cliente.exception.NaoJogandoException;
 import rede.AtorNetGames;
@@ -27,7 +29,7 @@ public class AtorJogador {
 	}
 
 	public void solicitarReinicio() throws NaoJogandoException {
-		this.tabuleiro.getJogador1().setTurno(false);
+		this.tabuleiro.getJogadorLocal().desabilitar();
 		this.rede.enviarJogada(null);
 	}
 	
@@ -38,9 +40,18 @@ public class AtorJogador {
 	public void desconectar() throws NaoConectadoException {
 		rede.desconectar();
 	}
+	
+	public void notificar(String mensagem) {
+		tela.notificar(mensagem);
+	}
+	
+	public void notificarErro(String erro) {
+		this.tabuleiro.setPartidaEmAndamento(false);
+		tela.notificar(erro);
+	}
 
-	public void IniciarPartida() {
-		
+	public void IniciarPartida() throws NaoConectadoException {
+		rede.iniciarPartida();
 	}
 
 	
@@ -57,11 +68,12 @@ public class AtorJogador {
 	}
 
 	
-	public void receberLance(Lance jogada) {
+	public void receberLance(ImagemDoTabuleiro tab) {
 		
 	}
 
 	public boolean avaliarInterrupcao() {
+		return false;
 		
 	}
 
@@ -72,6 +84,12 @@ public class AtorJogador {
 
 	public Tabuleiro getTabuleiro() {
 		return this.tabuleiro;
+	}
+
+
+	public void iniciarNovaPartida(Integer posicao) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
