@@ -1,12 +1,11 @@
 package control;
 
-
-
 import br.ufsc.inf.leobr.cliente.Jogada;
+
 import model.ImagemDoTabuleiro;
 import model.Jogador;
-import model.Posicao;
 import model.Lance;
+import model.Posicao;
 
 public class Tabuleiro implements Jogada {
 
@@ -18,10 +17,10 @@ public class Tabuleiro implements Jogada {
 	protected boolean ehVencedor;
 
 	public Tabuleiro() {
-			this.posicoes = new Posicao[6];
-			
+		this.posicoes = new Posicao[6];
+
 	}
-	
+
 	public boolean informarConectado() {
 		throw new UnsupportedOperationException();
 	}
@@ -29,7 +28,6 @@ public class Tabuleiro implements Jogada {
 	public boolean informaSePartidaEmAndamento() {
 		return this.partidaEmAndamento;
 	}
-
 
 	public void estabelecerConectado(boolean valor) {
 		throw new UnsupportedOperationException();
@@ -43,57 +41,52 @@ public class Tabuleiro implements Jogada {
 		throw new UnsupportedOperationException();
 	}
 
-	
-
 	public void posicionarJogadores() {
-		
+
 	}
 
 	public void definirOrdemInicio() {
 		throw new UnsupportedOperationException();
 	}
 
-	
 	public void receberLance(ImagemDoTabuleiro umTab) {
-		posicoes = umTab.getPosicoes(); 
-	    boolean ataque = umTab.getSeAtaque(); 
-	     
-	    if (ataque){ 
-	      boolean vencedor = umTab.getSeVencedorCampanha(); 
-	      int numeroDeVitorias; 
-	       
-	      if(vencedor){ 
-	    	  this.jogadorRemoto.incrementaVitoria(); 
-	          numeroDeVitorias = this.jogadorRemoto.getNumeroVitorias();
-	         
-	        if(numeroDeVitorias == 3){ 
-	          this.finalizaPartida(); 
-	        }else{ 
-	          this.finalizaCampanha(); 
-	        } 
-	      } 
-	    }
-	    this.getJogadorLocal().habilitar();
+		this.posicoes = umTab.getPosicoes();
+		boolean ataque = umTab.getSeAtaque();
+
+		if (ataque) {
+			boolean vencedor = umTab.getSeVencedorCampanha();
+			int numeroDeVitorias;
+
+			if (vencedor) {
+				this.jogadorRemoto.incrementaVitoria();
+				numeroDeVitorias = this.jogadorRemoto.getNumeroVitorias();
+
+				if (numeroDeVitorias == 3) {
+					this.finalizaPartida();
+				} else {
+					this.finalizaCampanha();
+				}
+			}
+		}
+		this.getJogadorLocal().habilitar();
 	}
 
-	
 	public void finalizaPartida() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public int clickJogada(int linha, int coluna, int tipoMovimento, String idJogador) {
 		throw new UnsupportedOperationException();
 	}
 
-	
 	public Lance informarJogada(int linha, int coluna, int movimento) {
 		throw new UnsupportedOperationException();
 	}
 
-	
 	public int tratarLance(int linha, int coluna, int movimento) {
-		
+		return movimento;
+
 	}
 
 	public void movimentoValido(int linha, int coluna, int movimento) {
@@ -104,7 +97,6 @@ public class Tabuleiro implements Jogada {
 		throw new UnsupportedOperationException();
 	}
 
-	
 	public void estabeleceMovimento(int linha, int coluna) {
 		throw new UnsupportedOperationException();
 	}
@@ -117,7 +109,6 @@ public class Tabuleiro implements Jogada {
 		throw new UnsupportedOperationException();
 	}
 
-	
 	public Jogador defineJogadorVencedor(String idJogador) {
 		throw new UnsupportedOperationException();
 	}
@@ -141,20 +132,19 @@ public class Tabuleiro implements Jogada {
 	public Jogador getJogadorLocal() {
 		return this.jogadorLocal;
 	}
-	
+
 	public Jogador getJogadorRemoto() {
 		return this.jogadorRemoto;
 	}
-	
-	public void criarJogadorLocal(String nome){
+
+	public void criarJogadorLocal(String nome) {
 		this.jogadorLocal = new Jogador(nome);
 	}
-	
-	public void criarJogadorRemoto(String nome){
+
+	public void criarJogadorRemoto(String nome) {
 		this.jogadorRemoto = new Jogador(nome);
 	}
-	
-	
+
 	public void setPartidaEmAndamento(boolean partidaEmAndamento) {
 		this.partidaEmAndamento = partidaEmAndamento;
 	}

@@ -9,13 +9,12 @@ public class Jogador implements Jogada {
 	protected boolean vencedor;
 	protected int numeroDeVitorias;
 
-	public Jogador(String nome){
+	public Jogador(String nome) {
 		this.nome = nome;
 		this.numeroDeVitorias = 0;
-		
+
 	}
-	
-	
+
 	public void habilitar() {
 		this.jogadarDaVez = true;
 	}
@@ -28,12 +27,10 @@ public class Jogador implements Jogada {
 		this.jogadarDaVez = false;
 	}
 
-
 	public void incrementaVitoria() {
 		this.numeroDeVitorias++;
-		
-	}
 
+	}
 
 	public int getNumeroVitorias() {
 		return this.numeroDeVitorias;
