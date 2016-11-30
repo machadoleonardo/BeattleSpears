@@ -44,9 +44,6 @@ public class Tabuleiro implements Jogada {
 	}
 
 	
-	public void criarJogador(String idJogador, String nome) {
-		throw new UnsupportedOperationException();
-	}
 
 	public void posicionarJogadores() {
 		
@@ -96,7 +93,7 @@ public class Tabuleiro implements Jogada {
 
 	
 	public int tratarLance(int linha, int coluna, int movimento) {
-		throw new UnsupportedOperationException();
+		
 	}
 
 	public void movimentoValido(int linha, int coluna, int movimento) {
