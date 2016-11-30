@@ -6,7 +6,7 @@ public class Lance implements Jogada {
 
 	protected Jogador jogador;
 	protected int tipoMovimento;
-	protected Posicao linha;
+	protected int linha;
 	protected int coluna;
 
 	/**

@@ -6,13 +6,13 @@ public class ImagemDoTabuleiro  implements Jogada{
 
 
 	private static final long serialVersionUID = 1L;
-	protected Posicao[] posicoes;
+	protected Posicao[][] posicoes;
 	protected String mensagem;
 	protected boolean vencedorCampanha = false;
 	protected boolean movimentoAtaque = false;
 	
 
-	public void definePosicoes( Posicao[] posicoes) {
+	public void definePosicoes( Posicao[][] posicoes) {
 		this.posicoes = posicoes;
 	}
 
@@ -40,7 +40,7 @@ public class ImagemDoTabuleiro  implements Jogada{
 		return this.movimentoAtaque;
 	}
 
-	public Posicao[] getPosicoes() {
+	public Posicao[][] getPosicoes() {
 		return this.posicoes;
 	}
 	

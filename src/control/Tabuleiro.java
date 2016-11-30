@@ -9,7 +9,7 @@ import model.Posicao;
 
 public class Tabuleiro implements Jogada {
 
-	protected Posicao[] posicoes;
+	protected Posicao[][] posicoes;
 	protected Jogador jogadorLocal;
 	protected Jogador jogadorRemoto;
 	protected boolean partidaEmAndamento;
@@ -17,7 +17,7 @@ public class Tabuleiro implements Jogada {
 	protected boolean ehVencedor;
 
 	public Tabuleiro() {
-		this.posicoes = new Posicao[6];
+		this.posicoes = new Posicao[2][3];
 
 	}
 

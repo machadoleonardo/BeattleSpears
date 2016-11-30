@@ -4,3 +4,4 @@ bin/rede/*.class
 bin/view/*.class 
 bin/*.class
 
+/bin/
